@@ -1,0 +1,12 @@
+ import cv2
+ from sklearn.decomposition import PCA
+ import matplotlib.pyplot as plt
+ import numpy as np
+ img = cv2.imread('img4.jpg', 0)
+ pca = PCA(10)
+ compressed = pca.fit_transform(img)
+ restored = pca.inverse_transform(compressed)
+ restored = np.uint8(np.clip(restored, 0, 255))
+ plt.imshow(np.hstack([img, restored]), cmap='gray')
+ plt.axis('off')
+ plt.show()
