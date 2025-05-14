@@ -1,0 +1,9 @@
+ import cv2
+ img = cv2.imread('img.jpg')
+ b, g, r = cv2.split(img)
+ cmy = cv2.merge([255-r, 255-g, 255-b])
+ hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+ cv2.imshow("CMY", cmy)
+ cv2.imshow("HSV", hsv)
+ cv2.waitKey(0)
+ cv2.destroyAllWindows()
