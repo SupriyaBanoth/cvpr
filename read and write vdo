@@ -1,0 +1,14 @@
+import cv2
+cap = cv2.VideoCapture("vd.mp4")
+while cap.isOpened():
+   ret, f = cap.read()
+   if not ret:
+     print("Done")
+     break
+   cv2.imshow("vdo", f)
+   if cv2.waitKey(10) & 0xFF == ord('q'):
+     print("The program is forced to quit")
+     break
+print("No frame to read")
+cap.release()
+cv2.destroyAllWindows()
