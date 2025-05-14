@@ -1,0 +1,9 @@
+ import cv2
+ import numpy as np
+ img = cv2.imread('img.jpg', 0)
+ negative = 255- img
+ log_transform = np.uint8(45 * np.log1p(img))
+ cv2.imshow("Negative", negative)
+ cv2.imshow("Log Transform", log_transform)
+ cv2.waitKey(0)
+ cv2.destroyAllWindows()
